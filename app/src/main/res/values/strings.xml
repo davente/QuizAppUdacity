@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">QuizAppUdacity</string>
+    <string name="hint">Enter your name</string>
+    <string name="instructions">Instructions:\n
+                                You have 2:00 minutes to answer all the questions correctly.\n
+                                Quiz ends when timer expires or you click submit.\n
+                                GoodLuck!</string>
+    <string name="previous">previous</string>
+    <string name="next">next</string>
+    <string name="start">Start</string>
+    <string name="submit">Submit</string>
+    <string name="app_logo">App Logo</string>
+    <string name="summary_card">Summary Card</string>
+    <string name="name">Name: </string>
+    <string name="action_about">About</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="app_info">app info</string>
+    <string name="version_number">Version 1.0</string>
+    <string name="score">Score: </string>
+    <string name="play_again">Play Again</string>
+    <string name="done">Done</string>
+    <string name="ques_avail">/10</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Question: %1$d</string>
+    <string name="question_test">Why did the chicken cross the road?</string>
+    <string name="question">Question</string>
+    <string name="_0_00">0:00</string>
+    <string name="time">Time</string>
+    <string name="_1_10">1/10</string>
+    <string name="title_activity_about">About QuizAppUdacity</string>
+    <string name="package_name">com.theinventor.quizappudacity</string>
+</resources>
