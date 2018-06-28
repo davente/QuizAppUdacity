@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getOptions(int num) {
-        for (int a = 0; a < questionLength; a++) {
+        for (int a = 0; ak < questionLength; a++) {
             for (int b = 0; b < 3; b++) {
                 radioGroupsArray[b].getChildAt(b).setText(optionsViewsArray[b]);
             }
