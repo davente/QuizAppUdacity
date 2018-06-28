@@ -21,16 +21,17 @@ public class SummaryActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (!(bundle == null)) {
             name = bundle.getString("name");
-            score = bundle.getString("score");
+            //score = bundle.getString("score");
         }
 
         nameTextView.setText(String.format("%s%s", nameTextView.getText().toString(), name));
-        scoreTextView.setText(String.format("%s%s", scoreTextView.getText().toString(), score));
+        //scoreTextView.setText(String.format("%s%s", scoreTextView.getText().toString(), score));
 
     }
 
     public void playAgain(View view) {
         Intent intent = new Intent(SummaryActivity.this, StartActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 }

@@ -12,7 +12,6 @@ public class StartActivity extends AppCompatActivity {
 
     private EditText nameField;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +27,8 @@ public class StartActivity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(StartActivity.this, MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
         intent.putExtra("name", name);
         startActivity(intent);
     }

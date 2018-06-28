@@ -11,8 +11,12 @@ public class Question {
             "In COMAL language program, after name of procedure parameters must be in?",
             "Programming language COBOL works best for use in?",
             "What is the capital of Liberia?",
-            "Which of the following are capitals of South Africa\n" +
-                    "(Select all that apply)"
+            "Why did the chicken cross the road?",
+            "What did the traffic light say to the car?",
+            "I am something, I kiss my mother before I die?",
+            "Who said \"Baby girl amma stick with you pass e bamboo\"?",
+            "What is Donald Trump's middle name?",
+            "Did you like my questions?",
     };
 
     public String mChoices[][] = {
@@ -20,14 +24,18 @@ public class Question {
             {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
             {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
             {"Monrovia", "Abuja", "Dakar", "Cape Town"},
-            {"Johannesburg", "Cape Town", "Pretoria", "Bleomfontain"}
+            {"CSS", "Vala", "HTML", "PHP"},
+            {"Punctuation Marks", "Brackets", "Semi Colon", "Back-Slash"},
+            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
+            {"HTML", "PHP", "CSS", "Vala"},
+            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
+            {"Siemens Applications", "Commercial Applications", "Student Applications", "Social Applications"}
     };
 
     public String mCorrectAnswer[] = {
             "PHP",
             "Brackets",
             "Commercial Applications",
-            "Correct",
             "Correct"
     };
 

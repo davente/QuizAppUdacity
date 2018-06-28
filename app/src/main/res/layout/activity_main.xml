@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.theinventor.quizappudacity.MainActivity">
 
-
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/info_card_view"
         android:layout_width="match_parent"
@@ -109,227 +108,153 @@
         android:layout_below="@+id/info_card_view"
         android:layout_marginTop="16dp">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp">
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
-                android:text="Section 1"
-                android:textAllCaps="true"
-                android:textSize="14sp" />
+                android:baselineAligned="false"
+                android:padding="6dp">
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="4dp">
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/question_place_holder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:orientation="vertical"
-                    android:padding="6dp">
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/question_place_holder"
+                    android:textSize="20sp" />
 
-                    <include
-                        layout="@layout/content_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
-                    <include
-                        layout="@layout/content_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
-                    <include
-                        layout="@layout/content_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
-                    <include
-                        layout="@layout/content_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
-                    <include
-                        layout="@layout/content_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
-                android:text="Section 2"
-                android:textAllCaps="true"
-                android:textSize="14sp" />
-
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="4dp">
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/question_place_holder"
                     android:baselineAligned="false"
-                    android:orientation="vertical"
                     android:padding="6dp">
 
+
                     <include
-                        layout="@layout/content_main"
+                        android:id="@+id/question_one_options"
+                        layout="@layout/question_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
                     <include
-                        layout="@layout/content_main"
+                        android:id="@+id/question_two_options"
+                        layout="@layout/question_two"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
                     <include
-                        layout="@layout/content_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
-                android:text="Section 3"
-                android:textAllCaps="true"
-                android:textSize="14sp" />
-
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:orientation="vertical"
-                    android:padding="6dp">
-
-                    <include
-                        layout="@layout/content_main"
+                        android:id="@+id/question_three_options"
+                        layout="@layout/question_three"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/darker_gray" />
-
                     <include
-                        layout="@layout/content_main"
+                        android:id="@+id/question_four_options"
+                        layout="@layout/question_four"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp" />
-                </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+                    <include
+                        android:id="@+id/question_five_options"
+                        layout="@layout/question_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <include
+                        android:id="@+id/question_six_options"
+                        layout="@layout/question_six"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <include
+                        android:id="@+id/question_seven_options"
+                        layout="@layout/question_seven"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <include
+                        android:id="@+id/question_eight_options"
+                        layout="@layout/question_eight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <include
+                        android:id="@+id/question_nine_options"
+                        layout="@layout/question_nine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <include
+                        android:id="@+id/question_ten_options"
+                        layout="@layout/question_ten"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" />
+
+                </RelativeLayout>
 
 
-        </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
     </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/previous_button"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="0.5dp"
+            android:layout_weight="1"
+            android:onClick="previous"
+            android:text="@string/previous" />
+
+        <Button
+            android:id="@+id/next_button"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="0.5dp"
+            android:layout_weight="1"
+            android:onClick="next"
+            android:text="@string/next" />
+
+    </LinearLayout>
 
 </RelativeLayout>
 

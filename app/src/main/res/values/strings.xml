@@ -30,4 +30,15 @@
     <string name="_1_10">1/10</string>
     <string name="title_activity_about">About QuizAppUdacity</string>
     <string name="package_name">com.theinventor.quizappudacity</string>
+    <string name="q1_options_place_holder">question 1 options are showing</string>
+    <string name="q2_options_place_holder">question 2 options are showing</string>
+    <string name="q3_options_place_holder">question 3 options are showing</string>
+    <string name="q4_options_place_holder">question 4 options are showing</string>
+    <string name="q5_options_place_holder">question 5 options are showing</string>
+    <string name="q6_options_place_holder">question 6 options are showing</string>
+    <string name="q7_options_place_holder">question 7 options are showing</string>
+    <string name="q8_options_place_holder">question 8 options are showing</string>
+    <string name="q9_options_place_holder">question 9 options are showing</string>
+    <string name="q10_options_place_holder">question 10 options are showing</string>
+    <string name="question_place_holder">Question 1</string>
 </resources>
