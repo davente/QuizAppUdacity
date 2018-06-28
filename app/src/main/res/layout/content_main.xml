@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.theinventor.quizapp.MainActivity"
+    tools:context="com.theinventor.quizappudacity.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
