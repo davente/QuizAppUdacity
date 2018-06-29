@@ -11,31 +11,31 @@
     tools:showIn="@layout/activity_main">
 
     <RadioButton
-        android:id="@+id/btn_one"
+        android:id="@+id/q3_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q3_options_place_holder" />
+        android:text="@string/q3_option_a" />
 
     <RadioButton
         android:id="@+id/btn_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q3_options_place_holder" />
+        android:text="@string/q3_option_b" />
 
     <RadioButton
         android:id="@+id/btn_three"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q3_options_place_holder" />
+        android:text="@string/q3_option_c" />
 
     <RadioButton
         android:id="@+id/btn_four"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q3_options_place_holder" />
+        android:text="@string/q3_option_d" />
 
 </RadioGroup>

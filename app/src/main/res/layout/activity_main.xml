@@ -102,131 +102,137 @@
 
     </android.support.v7.widget.CardView>
 
-    <ScrollView
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/info_card_view"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_card_view"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            card_view:cardCornerRadius="4dp"
-            card_view:cardElevation="4dp">
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/question_place_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/question_place_holder"
+                android:textSize="20sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/question_place_holder"
                 android:baselineAligned="false"
                 android:padding="6dp">
 
-                <TextView
-                    android:id="@+id/question_place_holder"
+
+                <include
+                    android:id="@+id/question_one_options"
+                    layout="@layout/question_one"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/question_place_holder"
-                    android:textSize="20sp" />
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp" />
 
-                <RelativeLayout
+                <include
+                    android:id="@+id/question_two_options"
+                    layout="@layout/question_two"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/question_place_holder"
-                    android:baselineAligned="false"
-                    android:padding="6dp">
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
+                <include
+                    android:id="@+id/question_three_options"
+                    layout="@layout/question_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_one_options"
-                        layout="@layout/question_one"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
+                <include
+                    android:id="@+id/question_four_options"
+                    layout="@layout/question_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_two_options"
-                        layout="@layout/question_two"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
+                <include
+                    android:id="@+id/question_five_options"
+                    layout="@layout/question_five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_three_options"
-                        layout="@layout/question_three"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
+                <include
+                    android:id="@+id/question_six_options"
+                    layout="@layout/question_six"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_four_options"
-                        layout="@layout/question_four"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
+                <include
+                    android:id="@+id/question_seven_options"
+                    layout="@layout/question_seven"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_five_options"
-                        layout="@layout/question_five"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
+                <include
+                    android:id="@+id/question_eight_options"
+                    layout="@layout/question_eight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_six_options"
-                        layout="@layout/question_six"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
+                <include
+                    android:id="@+id/question_nine_options"
+                    layout="@layout/question_nine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
-                    <include
-                        android:id="@+id/question_seven_options"
-                        layout="@layout/question_seven"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <include
-                        android:id="@+id/question_eight_options"
-                        layout="@layout/question_eight"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <include
-                        android:id="@+id/question_nine_options"
-                        layout="@layout/question_nine"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                    <include
-                        android:id="@+id/question_ten_options"
-                        layout="@layout/question_ten"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp" />
-
-                </RelativeLayout>
-
+                <include
+                    android:id="@+id/question_ten_options"
+                    layout="@layout/question_ten"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
-        </android.support.v7.widget.CardView>
-    </ScrollView>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -4,14 +4,15 @@
     <string name="instructions">Instructions:\n
                                 You have 2:00 minutes to answer all the questions correctly.\n
                                 Quiz ends when timer expires or you click submit.\n
-                                GoodLuck!</string>
+                                GoodLuck!\n
+                                DBACDA</string>
     <string name="previous">previous</string>
     <string name="next">next</string>
     <string name="start">Start</string>
     <string name="submit">Submit</string>
     <string name="app_logo">App Logo</string>
     <string name="summary_card">Summary Card</string>
-    <string name="name">Name: </string>
+    <string name="name">Name:</string>
     <string name="action_about">About</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="app_info">app info</string>
@@ -30,15 +31,47 @@
     <string name="_1_10">1/10</string>
     <string name="title_activity_about">About QuizAppUdacity</string>
     <string name="package_name">com.theinventor.quizappudacity</string>
-    <string name="q1_options_place_holder">question 1 options are showing</string>
-    <string name="q2_options_place_holder">question 2 options are showing</string>
-    <string name="q3_options_place_holder">question 3 options are showing</string>
-    <string name="q4_options_place_holder">question 4 options are showing</string>
-    <string name="q5_options_place_holder">question 5 options are showing</string>
-    <string name="q6_options_place_holder">question 6 options are showing</string>
-    <string name="q7_options_place_holder">question 7 options are showing</string>
-    <string name="q8_options_place_holder">question 8 options are showing</string>
-    <string name="q9_options_place_holder">question 9 options are showing</string>
-    <string name="q10_options_place_holder">question 10 options are showing</string>
+
     <string name="question_place_holder">Question 1</string>
+    <string name="hint_question">Enter answer here</string>
+    <string name="q1_option_a">PHP</string>
+    <string name="q1_option_b">q1 Option B</string>
+    <string name="q1_option_c">q1 Oprion C</string>
+    <string name="q1_option_d">q1 Option D</string>
+
+    <string name="q2_option_a">q2 Option A</string>
+    <string name="q2_option_b">q2 Option B</string>
+    <string name="q2_option_c">q2 Oprion C</string>
+    <string name="q2_option_d">q2 Option D</string>
+
+    <string name="q3_option_a">q3 Option A</string>
+    <string name="q3_option_b">q3 Option B</string>
+    <string name="q3_option_c">q3 Oprion C</string>
+    <string name="q3_option_d">q3 Option D</string>
+
+    <string name="q4_option_a">q4 Option A</string>
+    <string name="q4_option_b">q4 Option B</string>
+    <string name="q4_option_c">q4 Oprion C</string>
+    <string name="q4_option_d">q4 Option D</string>
+
+    <string name="q5_option_a">q5 Option A</string>
+    <string name="q5_option_b">q5 Option B</string>
+    <string name="q5_option_c">q5 Oprion C</string>
+    <string name="q5_option_d">q5 Option D</string>
+
+    <string name="q6_option_a">q6 Option A</string>
+    <string name="q6_option_b">q6 Option B</string>
+    <string name="q6_option_c">q6 Oprion C</string>
+    <string name="q6_option_d">q6 Option D</string>
+
+    <string name="q7_option_a">q7 Option A</string>
+    <string name="q7_option_b">q7 Option B</string>
+    <string name="q7_option_c">q7 Oprion C</string>
+    <string name="q7_option_d">q7 Option D</string>
+
+    <string name="q8_option_a">q8 Option A</string>
+    <string name="q8_option_b">q8 Option B</string>
+    <string name="q8_option_c">q8 Oprion C</string>
+    <string name="q8_option_d">q8 Option D</string>
+
 </resources>

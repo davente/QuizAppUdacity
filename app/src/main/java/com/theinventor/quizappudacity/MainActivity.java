@@ -8,24 +8,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     CountDownTimer countDownTimer;
     View[] optionsViewsArray;
-    String[] optionsMethodArray;
-    RadioGroup[] radioGroupsArray;
+
     private String name;
     private Button next_button, previous_button;
     private TextView timer;
     private TextView questionNumberTextView;
+
     //TextView that contains the questions
     private TextView questionPlaceHolder;
+
     //Create an instance of class Question and get the number of questions
     private Question question = new Question();
     private int questionLength = question.mQuestions.length;
     private int numb = 0;
+    private int score;
+
     //These are the views that are included in the MainActivity
     private View questionOneOptions;
     private View questionTwoOptions;
@@ -38,16 +48,39 @@ public class MainActivity extends AppCompatActivity {
     private View questionNineOptions;
     private View questionTenOptions;
     private Intent intent;
-    private RadioGroup radioGroupQuestionOne;
-    private RadioGroup radioGroupQuestionTwo;
-    private RadioGroup radioGroupQuestionThree;
-    private RadioGroup radioGroupQuestionFour;
-    private RadioGroup radioGroupQuestionFive;
-    private RadioGroup radioGroupQuestionSix;
-    private RadioGroup radioGroupQuestionSeven;
-    private RadioGroup radioGroupQuestionEight;
-    private RadioGroup radioGroupQuestionNine;
-    private RadioGroup radioGroupQuestionTen;
+
+    private RadioButton q1Answer;
+    private RadioButton q2Answer;
+    private RadioButton q3Answer;
+    private RadioButton q4Answer;
+    private RadioButton q5Answer;
+    private RadioButton q6Answer;
+
+    private CheckBox q7Option1;
+    private CheckBox q7Option2;
+    private CheckBox q7Option3;
+    private CheckBox q7Option4;
+
+    private CheckBox q8Option1;
+    private CheckBox q8Option2;
+    private CheckBox q8Option3;
+    private CheckBox q8Option4;
+
+    private EditText editTextQuestionNine;
+    private EditText editTextQuestionTen;
+
+    private String q1CorrectAnswer;
+    private String q2CorrectAnswer;
+    private String q3CorrectAnswer;
+    private String q4CorrectAnswer;
+    private String q5CorrectAnswer;
+    private String q6CorrectAnswer;
+    private String q7CorrectAnswer;
+    private String q8CorrectAnswer;
+    private String q9CorrectAnswer;
+    private String q10CorrectAnswer;
+
+    private String[] correctAnswersArray;
 
 
     @Override
@@ -69,9 +102,10 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 //TODO Show a dialog saying 'Times up'
                 countDownTimer.cancel();
-                if (intent == null) {
-                    showSummary();
-                }
+//                if (intent == null) {
+//                    //showSummary();
+//                }
+                timer.setText("Done");
             }
         }.start();
 
@@ -94,16 +128,27 @@ public class MainActivity extends AppCompatActivity {
         questionNineOptions = findViewById(R.id.question_nine_options);
         questionTenOptions = findViewById(R.id.question_ten_options);
 
-        radioGroupQuestionOne = findViewById(R.id.radio_group_question_one);
-        radioGroupQuestionTwo = findViewById(R.id.radio_group_question_two);
-        radioGroupQuestionThree = findViewById(R.id.radio_group_question_three);
-        radioGroupQuestionFour = findViewById(R.id.radio_group_question_four);
-        radioGroupQuestionFive = findViewById(R.id.radio_group_question_five);
-        radioGroupQuestionSix = findViewById(R.id.radio_group_question_six);
-        radioGroupQuestionSeven = findViewById(R.id.radio_group_question_seven);
-        radioGroupQuestionEight = findViewById(R.id.radio_group_question_eight);
-        radioGroupQuestionNine = findViewById(R.id.radio_group_question_nine);
-        radioGroupQuestionTen = findViewById(R.id.radio_group_question_ten);
+        q1Answer = findViewById(R.id.q1_answer);
+        q2Answer = findViewById(R.id.q2_answer);
+        q3Answer = findViewById(R.id.q3_answer);
+        q4Answer = findViewById(R.id.q4_answer);
+        q5Answer = findViewById(R.id.q5_answer);
+        q6Answer = findViewById(R.id.q6_answer);
+
+        q7Option1 = findViewById(R.id.q7_option_1);
+        q7Option2 = findViewById(R.id.q7_option_2);
+        q7Option3 = findViewById(R.id.q7_option_3);
+        q7Option4 = findViewById(R.id.q7_option_4);
+
+        q8Option1 = findViewById(R.id.q8_option_1);
+        q8Option2 = findViewById(R.id.q8_option_2);
+        q8Option3 = findViewById(R.id.q8_option_3);
+        q8Option4 = findViewById(R.id.q8_option_4);
+
+
+        editTextQuestionNine = findViewById(R.id.edit_text_q9);
+        editTextQuestionTen = findViewById(R.id.edit_text_q10);
+
 
         optionsViewsArray = new View[]{questionOneOptions,
                 questionTwoOptions,
@@ -118,22 +163,9 @@ public class MainActivity extends AppCompatActivity {
 
         //get the first question
         getQuestions(questionLength - questionLength);
-        hideAllViews();
+        //hideAllViews();
         optionsViewsArray[numb].setVisibility(View.VISIBLE);
-        optionsMethodArray = new String[]{question.getChoice1(numb),
-                question.getChoice2(numb),
-                question.getChoice3(numb),
-                question.getChoice4(numb)};
-        radioGroupsArray = new RadioGroup[]{radioGroupQuestionOne,
-                radioGroupQuestionTwo,
-                radioGroupQuestionThree,
-                radioGroupQuestionFour,
-                radioGroupQuestionFive,
-                radioGroupQuestionSix,
-                radioGroupQuestionSeven,
-                radioGroupQuestionEight,
-                radioGroupQuestionNine,
-                radioGroupQuestionTen,};
+
 
     }
 
@@ -144,6 +176,9 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
+
+                        calculateScore();
                         showSummary();
                     }
                 })
@@ -154,22 +189,42 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         alertDialogBuilder.show();
+
     }
 
     public void showSummary() {
         intent = new Intent(getApplicationContext(), SummaryActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         Bundle bundle = getIntent().getExtras();
         if (!(bundle == null)) {
             name = bundle.getString("name");
         }
-        int score = 0;
-        //intent.putExtra("score", score);
+
+        intent.putExtra("score", score);
         intent.putExtra("name", name);
         startActivity(intent);
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
+    }
+
+    public void next(View view) {
+        if (numb == questionLength - 1) {
+
+            next_button.setVisibility(View.INVISIBLE);
+        } else {
+            numb++;
+            getQuestions(numb);
+            previous_button.setVisibility(View.VISIBLE);
+            if (numb == questionLength - 1) {
+                next_button.setVisibility(View.INVISIBLE);
+            }
+        }
+        hideAllViews();
+        optionsViewsArray[numb].setVisibility(View.VISIBLE);
+        questionNumberTextView.setText(numb + 1 + "/10");
+        //Toast toast = Toast.makeText(getApplicationContext(), "Question 1 answer ID " + radioGroupQuestionOne.getCheckedRadioButtonId(), Toast.LENGTH_LONG);
+        //toast.show();
     }
 
     public void previous(View view) {
@@ -188,23 +243,6 @@ public class MainActivity extends AppCompatActivity {
         questionNumberTextView.setText(numb + 1 + "/10");
     }
 
-    public void next(View view) {
-        if (numb == questionLength - 1) {
-
-            next_button.setVisibility(View.INVISIBLE);
-        } else {
-            numb++;
-            getQuestions(numb);
-            previous_button.setVisibility(View.VISIBLE);
-            if (numb == questionLength - 1) {
-                next_button.setVisibility(View.INVISIBLE);
-            }
-        }
-        hideAllViews();
-        optionsViewsArray[numb].setVisibility(View.VISIBLE);
-        questionNumberTextView.setText(numb + 1 + "/10");
-    }
-
     private void getQuestions(int num) {
         questionPlaceHolder.setText(question.getQuestion(num));
     }
@@ -216,11 +254,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void getOptions(int num) {
-        for (int a = 0; ak < questionLength; a++) {
-            for (int b = 0; b < 3; b++) {
-                radioGroupsArray[b].getChildAt(b).setText(optionsViewsArray[b]);
-            }
+//    private void getOptions(int num) {
+//        for (int a = 0; a < questionLength; a++) {
+//            for (int b = 0; b < 3; b++) {
+//                //radioGroupsArray[b].getChildAt(b).setText(optionsViewsArray[b]);
+//            }
+//        }
+//    }
+
+    public void calculateScore() {
+
+        score = 0;
+        if (q1Answer.isChecked()) {
+            score++;
         }
+        if (q2Answer.isChecked()) {
+            score++;
+        }
+        if (q3Answer.isChecked()) {
+            score++;
+        }
+        if (q4Answer.isChecked()) {
+            score++;
+        }
+        if (q5Answer.isChecked()) {
+            score++;
+        }
+        if (q6Answer.isChecked()) {
+            score++;
+        }
+
+        if ((q7Option1.isChecked() && q7Option3.isChecked()) && !(q7Option2.isChecked() || q7Option4.isChecked())) {
+            score++;
+        }
+
+        if ((q8Option2.isChecked() && q8Option4.isChecked()) && !(q8Option1.isChecked() || q8Option3.isChecked())) {
+            score++;
+        }
+
+        if (Objects.equals(editTextQuestionNine.getText().toString(), question.getCorrectAnswer(8))) {
+            score++;
+        }
+
+        if (Objects.equals(editTextQuestionTen.getText().toString(), question.getCorrectAnswer(9))) {
+            score++;
+        }
+        Toast toast = Toast.makeText(getApplicationContext(), "Score: " + score + " out of " + questionLength, Toast.LENGTH_LONG);
+        toast.show();
     }
 }

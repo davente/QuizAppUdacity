@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/radio_group_question_eight"
+    android:id="@+id/linear_layout_question_eight"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.theinventor.quizappudacity.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <RadioButton
-        android:id="@+id/btn_one"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/q8_option_1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q8_options_place_holder" />
+        android:layout_weight="1"
+        android:text="@string/q8_option_a" />
 
-    <RadioButton
-        android:id="@+id/btn_two"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/q8_option_2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q8_options_place_holder" />
+        android:layout_weight="1"
+        android:text="@string/q8_option_b" />
 
-    <RadioButton
-        android:id="@+id/btn_three"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/q8_option_3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q8_options_place_holder" />
+        android:layout_weight="1"
+        android:text="@string/q8_option_c" />
 
-    <RadioButton
-        android:id="@+id/btn_four"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/q8_option_4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q8_options_place_holder" />
+        android:layout_weight="1"
+        android:text="@string/q8_option_d" />
 
-</RadioGroup>
+</LinearLayout>

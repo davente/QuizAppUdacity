@@ -15,27 +15,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q5_options_place_holder" />
+        android:text="@string/q5_option_a" />
 
     <RadioButton
         android:id="@+id/btn_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q5_options_place_holder" />
+        android:text="@string/q5_option_b" />
 
     <RadioButton
         android:id="@+id/btn_three"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q5_options_place_holder" />
+        android:text="@string/q5_option_c" />
 
     <RadioButton
-        android:id="@+id/btn_four"
+        android:id="@+id/q5_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/q5_options_place_holder" />
+        android:text="@string/q5_option_d" />
 
 </RadioGroup>

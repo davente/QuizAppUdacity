@@ -8,43 +8,61 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="24dp"
-            android:contentDescription="@string/app_logo"
-            app:srcCompat="@drawable/app_logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:text="@string/instructions"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
-        <android.support.design.widget.TextInputLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/name_field"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:ems="10"
-                android:hint="@string/hint"
-                android:inputType="textCapWords"
-                android:maxLength="15" />
-        </android.support.design.widget.TextInputLayout>
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="24dp"
+                    android:contentDescription="@string/app_logo"
+                    app:srcCompat="@drawable/app_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/instructions"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/name_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:ems="10"
+                        android:hint="@string/hint"
+                        android:inputType="textCapWords"
+                        android:maxLength="15" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+        ¶
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:visibility="invisible"></LinearLayout>
     </LinearLayout>
 
     <LinearLayout

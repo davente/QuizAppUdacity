@@ -21,11 +21,11 @@ public class SummaryActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (!(bundle == null)) {
             name = bundle.getString("name");
-            //score = bundle.getString("score");
+            score = bundle.getString("score");
         }
 
-        nameTextView.setText(String.format("%s%s", nameTextView.getText().toString(), name));
-        //scoreTextView.setText(String.format("%s%s", scoreTextView.getText().toString(), score));
+        nameTextView.setText(String.format("%s %s", nameTextView.getText().toString(), name));
+        scoreTextView.setText(String.format("%s %s", scoreTextView.getText().toString(), score));
 
     }
 

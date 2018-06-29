@@ -19,45 +19,51 @@ public class Question {
             "Did you like my questions?",
     };
 
-    public String mChoices[][] = {
-            {"HTML", "CSS", "Vala", "PHP"},
-            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
-            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
-            {"Monrovia", "Abuja", "Dakar", "Cape Town"},
-            {"CSS", "Vala", "HTML", "PHP"},
-            {"Punctuation Marks", "Brackets", "Semi Colon", "Back-Slash"},
-            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
-            {"HTML", "PHP", "CSS", "Vala"},
-            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
-            {"Siemens Applications", "Commercial Applications", "Student Applications", "Social Applications"}
-    };
+//    public String mChoices[][] = {
+//            {"HTML", "CSS", "Vala", "PHP"},
+//            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
+//            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
+//            {"Monrovia", "Abuja", "Dakar", "Cape Town"},
+//            {"CSS", "Vala", "HTML", "PHP"},
+//            {"Punctuation Marks", "Brackets", "Semi Colon", "Back-Slash"},
+//            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
+//            {"HTML", "PHP", "CSS", "Vala"},
+//            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
+//            {"Siemens Applications", "Commercial Applications", "Student Applications", "Social Applications"}
+//    };
 
     public String mCorrectAnswer[] = {
             "PHP",
             "Brackets",
             "Commercial Applications",
-            "Correct"
+            "Correct",
+            "PHP",
+            "Brackets",
+            "Commercial Applications",
+            "Correct",
+            "Joshua",
+            "Yes"
     };
 
     public String getQuestion(int a) {
         return mQuestions[a];
     }
 
-    public String getChoice1(int a) {
-        return mChoices[a][0];
-    }
-
-    public String getChoice2(int a) {
-        return mChoices[a][1];
-    }
-
-    public String getChoice3(int a) {
-        return mChoices[a][2];
-    }
-
-    public String getChoice4(int a) {
-        return mChoices[a][3];
-    }
+//    public String getChoice1(int a) {
+//        return mChoices[a][0];
+//    }
+//
+//    public String getChoice2(int a) {
+//        return mChoices[a][1];
+//    }
+//
+//    public String getChoice3(int a) {
+//        return mChoices[a][2];
+//    }
+//
+//    public String getChoice4(int a) {
+//        return mChoices[a][3];
+//    }
 
     public String getCorrectAnswer(int a) {
         return mCorrectAnswer[a];
