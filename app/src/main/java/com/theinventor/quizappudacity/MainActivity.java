@@ -185,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        countDownTimer.cancel();
+    }
+
     public void next(View view) {
         if (numb == questionLength - 1) {
             numb++;

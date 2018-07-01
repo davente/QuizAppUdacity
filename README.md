@@ -1,5 +1,5 @@
 # Thnk
-Link to Google Drive apk: https://drive.google.com/open?id=1aTFZoQg3kWHvndmsb4cedP10yU5f6HG0
+Link to Google Drive apk: https://drive.google.com/open?id=1sair6V1Idiv2LVk5bCSmklCvj_rVIMxe
 This App Contains 10 questions that should be answered in 2 minutes
 Each question is viewed one at a time
 Quiz is a mix of questions from various spheres of life.
