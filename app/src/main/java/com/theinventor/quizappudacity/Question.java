@@ -4,68 +4,41 @@ package com.theinventor.quizappudacity;
  * Created by The Inventor on 25/06/2018.
  */
 
-public class Question {
+class Question {
 
-    public String mQuestions[] = {
-            "Which is a Programming Language?",
-            "In COMAL language program, after name of procedure parameters must be in?",
-            "Programming language COBOL works best for use in?",
-            "What is the capital of Liberia?",
-            "Why did the chicken cross the road?",
-            "What did the traffic light say to the car?",
-            "I am something, I kiss my mother before I die?",
-            "Who said \"Baby girl amma stick with you pass e bamboo\"?",
+    final String[] mQuestions = {
+            "What is the fastest land animal?",
+            "A flock of crows is known as what?",
+            "Which of the following is a musician?",
+            "What is the most expensive currency?",
             "What is Donald Trump's middle name?",
+            "How many letters are in question one's question?",
+            "Which of the following is(are) the capital(s) of South Africa?\n" +
+                    "(Select All That Apply)",
+            "Which of the following is an Android version?\n" +
+                    "(Select All That Apply)",
+            "What can you catch but not throw?",
             "Did you like my questions?",
     };
 
-//    public String mChoices[][] = {
-//            {"HTML", "CSS", "Vala", "PHP"},
-//            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
-//            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
-//            {"Monrovia", "Abuja", "Dakar", "Cape Town"},
-//            {"CSS", "Vala", "HTML", "PHP"},
-//            {"Punctuation Marks", "Brackets", "Semi Colon", "Back-Slash"},
-//            {"Siemens Applications", "Student Applications", "Social Applications", "Commercial Applications"},
-//            {"HTML", "PHP", "CSS", "Vala"},
-//            {"Punctuation Marks", "Back-Slash", "Brackets", "Semi Colon"},
-//            {"Siemens Applications", "Commercial Applications", "Student Applications", "Social Applications"}
-//    };
-
-    public String mCorrectAnswer[] = {
-            "PHP",
-            "Brackets",
-            "Commercial Applications",
-            "Correct",
-            "PHP",
-            "Brackets",
-            "Commercial Applications",
-            "Correct",
-            "Joshua",
+    private final String[] mCorrectAnswer = {
+            "Cheetah",
+            "Murder",
+            "Chris Brown",
+            "Kuwait Dinar",
+            "John",
+            "26",
+            "Pretoria, Cape Town and Bloemfontein",
+            "Oreo and Froyo",
+            "A Cold",
             "Yes"
     };
 
-    public String getQuestion(int a) {
+    String getQuestion(int a) {
         return mQuestions[a];
     }
 
-//    public String getChoice1(int a) {
-//        return mChoices[a][0];
-//    }
-//
-//    public String getChoice2(int a) {
-//        return mChoices[a][1];
-//    }
-//
-//    public String getChoice3(int a) {
-//        return mChoices[a][2];
-//    }
-//
-//    public String getChoice4(int a) {
-//        return mChoices[a][3];
-//    }
-
-    public String getCorrectAnswer(int a) {
+    String getCorrectAnswer(int a) {
         return mCorrectAnswer[a];
     }
 }

@@ -1,14 +1,19 @@
 package com.theinventor.quizappudacity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SummaryActivity extends AppCompatActivity {
+    private static final int TIME_INTERVAL = 2000;
+    private final Question question = new Question();
+    private final int questionLength = question.mQuestions.length;
     private String name;
-    private String score;
+    private int score;
+    private long mBackPressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,16 +22,93 @@ public class SummaryActivity extends AppCompatActivity {
 
         TextView nameTextView = findViewById(R.id.name_text_view);
         TextView scoreTextView = findViewById(R.id.score_text_view);
+        TextView numberOfQuestions = findViewById(R.id.number_of_questions);
+
+        //TextViews that show the questions
+        TextView summaryQuestionOne = findViewById(R.id.summary_question_one);
+        TextView summaryQuestionTwo = findViewById(R.id.summary_question_two);
+        TextView summaryQuestionThree = findViewById(R.id.summary_question_three);
+        TextView summaryQuestionFour = findViewById(R.id.summary_question_four);
+        TextView summaryQuestionFive = findViewById(R.id.summary_question_five);
+        TextView summaryQuestionSix = findViewById(R.id.summary_question_six);
+        TextView summaryQuestionSeven = findViewById(R.id.summary_question_seven);
+        TextView summaryQuestionEight = findViewById(R.id.summary_question_eight);
+        TextView summaryQuestionNine = findViewById(R.id.summary_question_nine);
+        TextView summaryQuestionTen = findViewById(R.id.summary_question_ten);
+
+        //TextViews that show the correct answers
+        TextView correctAnswerQuestionOne = findViewById(R.id.correct_answer_question_one);
+        TextView correctAnswerQuestionTwo = findViewById(R.id.correct_answer_question_two);
+        TextView correctAnswerQuestionThree = findViewById(R.id.correct_answer_question_three);
+        TextView correctAnswerQuestionFour = findViewById(R.id.correct_answer_question_four);
+        TextView correctAnswerQuestionFive = findViewById(R.id.correct_answer_question_five);
+        TextView correctAnswerQuestionSix = findViewById(R.id.correct_answer_question_six);
+        TextView correctAnswerQuestionSeven = findViewById(R.id.correct_answer_question_seven);
+        TextView correctAnswerQuestionEight = findViewById(R.id.correct_answer_question_eight);
+        TextView correctAnswerQuestionNine = findViewById(R.id.correct_answer_question_nine);
+        TextView correctAnswerQuestionTen = findViewById(R.id.correct_answer_question_ten);
+
+        TextView exclamation = findViewById(R.id.exclamation_mark);
+
+
+        TextView[] summaryQuestionsArray = new TextView[]{summaryQuestionOne,
+                summaryQuestionTwo,
+                summaryQuestionThree,
+                summaryQuestionFour,
+                summaryQuestionFive,
+                summaryQuestionSix,
+                summaryQuestionSeven,
+                summaryQuestionEight,
+                summaryQuestionNine,
+                summaryQuestionTen};
+        TextView[] correctAnswersArray = new TextView[]{correctAnswerQuestionOne,
+                correctAnswerQuestionTwo,
+                correctAnswerQuestionThree,
+                correctAnswerQuestionFour,
+                correctAnswerQuestionFive,
+                correctAnswerQuestionSix,
+                correctAnswerQuestionSeven,
+                correctAnswerQuestionEight,
+                correctAnswerQuestionNine,
+                correctAnswerQuestionTen};
+
+        for (int i = 0; i < summaryQuestionsArray.length; i++) {
+            summaryQuestionsArray[i].setText(question.getQuestion(i));
+        }
+
+        for (int i = 0; i < correctAnswersArray.length; i++) {
+            correctAnswersArray[i].setText(question.getCorrectAnswer(i));
+        }
+
 
         Bundle bundle = getIntent().getExtras();
         if (!(bundle == null)) {
             name = bundle.getString("name");
-            score = bundle.getString("score");
+            score = bundle.getInt("score");
+            if (score > 7) {
+                exclamation.setVisibility(View.VISIBLE);
+            } else {
+                exclamation.setVisibility(View.INVISIBLE);
+            }
         }
 
-        nameTextView.setText(String.format("%s %s", nameTextView.getText().toString(), name));
-        scoreTextView.setText(String.format("%s %s", scoreTextView.getText().toString(), score));
+        nameTextView.setText(name);
+        scoreTextView.setText(String.format("%d", score));
+        numberOfQuestions.setText(String.format("%d", questionLength));
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast backToast = Toast.makeText(this, "Touch again to exit", Toast.LENGTH_SHORT);
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast.show();
+            mBackPressed = System.currentTimeMillis();
+        }
     }
 
     public void playAgain(View view) {

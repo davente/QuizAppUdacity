@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +8,7 @@
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/info_card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -18,21 +17,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:baselineAligned="false"
             android:orientation="horizontal"
             android:padding="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false">
+                android:layout_height="match_parent"
+                android:background="@drawable/app_info_card_view"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/app_info_card_view"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:paddingTop="8dp">
 
@@ -41,7 +42,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:gravity="center_horizontal"
-                        android:text="Question"
+                        android:text="@string/question"
                         android:textAllCaps="true"
                         android:textSize="12sp" />
 
@@ -50,15 +51,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="1/10"
+                        android:text="@string/_1_10"
                         android:textSize="28sp" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/app_info_card_view"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:paddingTop="8dp">
 
@@ -67,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:gravity="center_horizontal"
-                        android:text="Time"
+                        android:text="@string/time"
                         android:textAllCaps="true"
                         android:textSize="12sp" />
 
@@ -76,24 +82,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="0:00"
+                        android:text="@string/_0_00"
                         android:textColor="#CA0628"
                         android:textSize="28sp" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <Button
-                        style="@style/ButtonStyle"
+                    <Spinner
+                        android:id="@+id/spinner_questions"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="submit"
+                        android:layout_height="match_parent"
                         android:text="@string/submit" />
                 </LinearLayout>
             </LinearLayout>
@@ -133,10 +142,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/question_place_holder"
                 android:baselineAligned="false"
                 android:padding="6dp">
-
 
                 <include
                     android:id="@+id/question_one_options"
@@ -232,7 +239,6 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-
 
     <LinearLayout
         android:layout_width="match_parent"
