@@ -13,35 +13,26 @@
 
     <CheckBox
         android:id="@+id/q8_option_1"
+        style="@style/OptionStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1"
-        android:text="@string/q8_option_a"
-        android:textSize="16sp" />
+        android:text="@string/q8_option_a" />
 
     <CheckBox
         android:id="@+id/q8_option_2"
+        style="@style/OptionStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1"
         android:text="@string/q8_option_b" />
 
     <CheckBox
         android:id="@+id/q8_option_3"
+        style="@style/OptionStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1"
         android:text="@string/q8_option_c" />
 
     <CheckBox
         android:id="@+id/q8_option_4"
+        style="@style/OptionStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1"
         android:text="@string/q8_option_d" />
 
 </LinearLayout>

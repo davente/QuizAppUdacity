@@ -8,6 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SummaryActivity extends AppCompatActivity {
+
+    //Interval between back clicks to show toast
     private static final int TIME_INTERVAL = 2000;
     private final Question question = new Question();
     private final int questionLength = question.mQuestions.length;
@@ -48,9 +50,10 @@ public class SummaryActivity extends AppCompatActivity {
         TextView correctAnswerQuestionNine = findViewById(R.id.correct_answer_question_nine);
         TextView correctAnswerQuestionTen = findViewById(R.id.correct_answer_question_ten);
 
+        //TextView containing exclamation mark
         TextView exclamation = findViewById(R.id.exclamation_mark);
 
-
+        //Array of questions' TextViews
         TextView[] summaryQuestionsArray = new TextView[]{summaryQuestionOne,
                 summaryQuestionTwo,
                 summaryQuestionThree,
@@ -61,6 +64,8 @@ public class SummaryActivity extends AppCompatActivity {
                 summaryQuestionEight,
                 summaryQuestionNine,
                 summaryQuestionTen};
+
+        //Array of correct answers' TextViews
         TextView[] correctAnswersArray = new TextView[]{correctAnswerQuestionOne,
                 correctAnswerQuestionTwo,
                 correctAnswerQuestionThree,
@@ -72,15 +77,17 @@ public class SummaryActivity extends AppCompatActivity {
                 correctAnswerQuestionNine,
                 correctAnswerQuestionTen};
 
+        //Get and set the questions for each question from the Question class
         for (int i = 0; i < summaryQuestionsArray.length; i++) {
             summaryQuestionsArray[i].setText(question.getQuestion(i));
         }
 
+        //Get and set the correct answers for each question from the Question class
         for (int i = 0; i < correctAnswersArray.length; i++) {
             correctAnswersArray[i].setText(question.getCorrectAnswer(i));
         }
 
-
+        //Get the name and user score. Scores above 7 end with an '!'
         Bundle bundle = getIntent().getExtras();
         if (!(bundle == null)) {
             name = bundle.getString("name");
@@ -98,6 +105,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     }
 
+    //You need to press back consecutively within the space of 2 secs to exit
     @Override
     public void onBackPressed() {
         Toast backToast = Toast.makeText(this, "Touch again to exit", Toast.LENGTH_SHORT);
@@ -111,6 +119,7 @@ public class SummaryActivity extends AppCompatActivity {
         }
     }
 
+    //Go to the StartActivity while clearing back stack
     public void playAgain(View view) {
         Intent intent = new Intent(SummaryActivity.this, StartActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

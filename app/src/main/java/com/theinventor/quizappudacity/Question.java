@@ -6,6 +6,7 @@ package com.theinventor.quizappudacity;
 
 class Question {
 
+    //Array of Questions
     final String[] mQuestions = {
             "What is the fastest land animal?",
             "A flock of crows is known as what?",
@@ -21,6 +22,7 @@ class Question {
             "Did you like my questions?",
     };
 
+    //Array of Correct Answers
     private final String[] mCorrectAnswer = {
             "Cheetah",
             "Murder",
@@ -34,10 +36,12 @@ class Question {
             "Yes"
     };
 
+    //Method to get the question from the questionArray
     String getQuestion(int a) {
         return mQuestions[a];
     }
 
+    //Method to get the answers from the answersArray
     String getCorrectAnswer(int a) {
         return mCorrectAnswer[a];
     }

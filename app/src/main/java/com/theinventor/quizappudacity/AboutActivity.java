@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
+    //used to open the app's info page
     private final String packageName = "com.theinventor.quizappudacity";
 
     @Override
@@ -23,10 +24,11 @@ public class AboutActivity extends AppCompatActivity {
 
         TextView terms = findViewById(R.id.terms_and_conditions_textView);
 
+        //Used to underline the Terms and Conditions TextView
         SpannableString content = new SpannableString(getText(R.string.terms_and_conditions));
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         terms.setText(content);
-
+        //Called when app info textView is clicked
         app_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,8 +40,6 @@ public class AboutActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } catch (ActivityNotFoundException e) {
-                    //e.printStackTrace();
-
                     //Open the generic Apps page:
                     Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
                     startActivity(intent);
@@ -48,6 +48,7 @@ public class AboutActivity extends AppCompatActivity {
         });
     }
 
+    //Open the TermsAndConditionsActivity
     public void termsAndConditions(View view) {
         Intent termsIntent = new Intent(getApplicationContext(), TermsAndConditionsActivity.class);
         startActivity(termsIntent);

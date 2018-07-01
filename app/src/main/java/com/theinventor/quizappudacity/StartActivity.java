@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
-
+    //Interval between back clicks to show toast
     private static final int TIME_INTERVAL = 2000;
     private EditText nameField;
     private long mBackPressed;
@@ -20,9 +20,9 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         nameField = findViewById(R.id.name_field);
-
     }
 
+    //Called when the start button is clicked
     public void start(View view) {
         String name = nameField.getText().toString();
         if (name.isEmpty()) {
@@ -36,6 +36,7 @@ public class StartActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //You need to press back consecutively within the space of 2 secs to exit
     @Override
     public void onBackPressed() {
         Toast backToast = Toast.makeText(this, "Touch again to exit", Toast.LENGTH_SHORT);

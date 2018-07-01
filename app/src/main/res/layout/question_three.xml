@@ -12,27 +12,23 @@
 
     <RadioButton
         android:id="@+id/q3_answer"
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q3_option_a" />
 
     <RadioButton
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q3_option_b" />
 
     <RadioButton
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q3_option_c" />
 
     <RadioButton
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q3_option_d" />
 
 </RadioGroup>

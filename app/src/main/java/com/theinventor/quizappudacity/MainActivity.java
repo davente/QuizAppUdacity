@@ -1,17 +1,25 @@
 package com.theinventor.quizappudacity;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
     private Button next_button, previous_button;
     private TextView timer;
     private TextView questionNumberTextView;
+
     //TextView that contains the questions
     private TextView questionPlaceHolder;
     private int numb = 0;
     private int score;
 
+    private boolean back;
+
+    //RadioButtons for correct answers
     private RadioButton q1Answer;
     private RadioButton q2Answer;
     private RadioButton q3Answer;
@@ -40,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton q5Answer;
     private RadioButton q6Answer;
 
+    //Question 7 options
     private CheckBox q7Option1;
     private CheckBox q7Option2;
     private CheckBox q7Option3;
     private CheckBox q7Option4;
 
+    //Question 8 options
     private CheckBox q8Option1;
     private CheckBox q8Option2;
     private CheckBox q8Option3;
@@ -55,27 +69,46 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner spinnerQuestions;
 
+    private CardView questionCardView;
+    private Animation animEnterRight;
+    private Animation animEnterLeft;
+    private LinearLayout timerLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final long quizTime = 2 * 60 * 1000;
+        final long quizTime = 2 * 60 * 1000;//Time in milliseconds
         timer = findViewById(R.id.timer);
+
+        back = false;
+
+        //Animations for the cardView entrance and exit
+        animEnterRight = AnimationUtils.loadAnimation(this, R.anim.anim_enter_right);
+        animEnterLeft = AnimationUtils.loadAnimation(this, R.anim.anim_enter_left);
+        timerLinearLayout = findViewById(R.id.timer_linear_layout);
+
+        //Timer
         countDownTimer = new CountDownTimer(quizTime, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
+                //Time converted to seconds
                 long seconds = millisUntilFinished / 1000;
                 timer.setText(String.format("%2d:%02d", (seconds % 3600) / 60, seconds % 60));
 
+                //When timer has 10 seconds left,update its text color and parent layout color
+                if (seconds <= 10) {
+                    animateColor(timerLinearLayout, "backgroundColor", Color.WHITE, getResources().getColor(R.color.colorButton));
+                    animateColor(timer, "textColor", getResources().getColor(R.color.colorPrimary), Color.BLACK);
+                }
             }
 
             @Override
             public void onFinish() {
-                if (!(intent == new Intent(getApplicationContext(), SummaryActivity.class))) {
-                    calculateScore();
+                if (!(intent == new Intent(getApplicationContext(), SummaryActivity.class)) && !(back)) {
                     Toast.makeText(getApplicationContext(), "Time Up", Toast.LENGTH_SHORT).show();
+                    calculateScore();
                     showSummary();
                 }
             }
@@ -123,10 +156,14 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerQuestions = findViewById(R.id.spinner_questions);
 
+        questionCardView = findViewById(R.id.question_card_view);
+
         //Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.questions_array, android.R.layout.simple_spinner_item);
+
         //Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         //Apply the adapter to the spinner
         spinnerQuestions.setAdapter(adapter);
         spinnerQuestions.setDropDownWidth(300);
@@ -144,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (numb == questionLength - 1) {
                     previous_button.setVisibility(View.VISIBLE);
-                    next_button.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    next_button.setBackgroundColor(getResources().getColor(R.color.colorButton));
+                    next_button.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     next_button.setText(R.string.submit);
                 }
                 if ((numb == 0) || (position < questionLength - 1)) {
@@ -155,7 +193,8 @@ public class MainActivity extends AppCompatActivity {
                     previous_button.setVisibility(View.INVISIBLE);
                 }
                 if (!(numb == questionLength - 1)) {
-                    next_button.setBackgroundColor(getResources().getColor(R.color.colorButton));
+                    next_button.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                    next_button.setTextColor(getResources().getColor(android.R.color.white));
                 }
 
             }
@@ -179,17 +218,14 @@ public class MainActivity extends AppCompatActivity {
 
         //get the first question
         getQuestions(0);
-        //hideAllViews();
+
+        //Make the first question visible
         optionsViewsArray[numb].setVisibility(View.VISIBLE);
-
-
+        //Animate cardView on entrance
+        questionCardView.startAnimation(animEnterRight);
     }
 
-    @Override
-    public void onBackPressed() {
-        countDownTimer.cancel();
-    }
-
+    //Called the next button is clicked
     public void next(View view) {
         if (numb == questionLength - 1) {
             numb++;
@@ -202,8 +238,12 @@ public class MainActivity extends AppCompatActivity {
             next_button.setText(R.string.next);
         }
         if (numb == questionLength - 1) {
-            next_button.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            next_button.setBackgroundColor(getResources().getColor(R.color.colorButton));
+            next_button.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
             next_button.setText(R.string.submit);
+        }
+        if (!(numb == 10)) {
+            questionCardView.startAnimation(animEnterRight);
         }
 
         if (numb == questionLength) {
@@ -215,15 +255,18 @@ public class MainActivity extends AppCompatActivity {
         optionsViewsArray[numb].setVisibility(View.VISIBLE);
         questionNumberTextView.setText(String.format("%d/%d", numb + 1, questionLength));
         spinnerQuestions.setSelection(numb);
+
     }
 
+    //Called the next button is clicked
     public void previous(View view) {
         if (numb == 0) {
             previous_button.setVisibility(View.INVISIBLE);
         } else {
             numb--;
             getQuestions(numb);
-            next_button.setBackgroundColor(getResources().getColor(R.color.colorButton));
+            next_button.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+            next_button.setTextColor(getResources().getColor(android.R.color.white));
             next_button.setText(R.string.next);
             if (numb == 0) {
                 previous_button.setVisibility(View.INVISIBLE);
@@ -234,8 +277,10 @@ public class MainActivity extends AppCompatActivity {
         optionsViewsArray[numb].setVisibility(View.VISIBLE);
         questionNumberTextView.setText(String.format("%d/%d", numb + 1, questionLength));
         spinnerQuestions.setSelection(numb);
+        questionCardView.startAnimation(animEnterLeft);
     }
 
+    //Set the appropriate question to the textView
     private void getQuestions(int num) {
         questionPlaceHolder.setText(question.getQuestion(num));
     }
@@ -247,6 +292,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Show alertDialog
     private void showSubmitDialog() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder
@@ -267,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialogBuilder.show();
     }
 
+    //Method to calculate the score
     private void calculateScore() {
 
         score = 0;
@@ -308,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
         scoreToast.show();
     }
 
+    //Method to show the Summary Activity
     private void showSummary() {
         intent = new Intent(getApplicationContext(), SummaryActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -320,9 +368,38 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("name", name);
         countDownTimer.cancel();
         startActivity(intent);
+        finish();
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
     }
 
+    // Custom method to animate a color of specified property
+    private void animateColor(View v, String propertyName, int startColor, int endColor) {
+        // Initialize a new value animator of type int
+        ValueAnimator valueAnimator = ObjectAnimator.ofInt(
+                v, // Target object
+                propertyName, // Property name
+                startColor, // Value
+                endColor // Value
+        );
+
+        // Set value animator evaluator
+        valueAnimator.setEvaluator(new ArgbEvaluator());
+        // Set animation duration in milliseconds
+        valueAnimator.setDuration(250);
+        // Animation repeat count and mode
+        valueAnimator.setRepeatCount(1);
+        valueAnimator.setRepeatMode(ValueAnimator.REVERSE);
+
+        // Finally, start the animation
+        valueAnimator.start();
+    }
+
+    //Prevent the app from showing summary when back has been pressed
+    @Override
+    public void onBackPressed() {
+        back = true;
+        this.finish();
+    }
 }

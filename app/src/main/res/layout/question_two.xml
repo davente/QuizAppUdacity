@@ -11,29 +11,24 @@
     tools:showIn="@layout/activity_main">
 
     <RadioButton
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q2_option_a" />
 
     <RadioButton
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q2_option_b" />
 
     <RadioButton
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/q2_option_c" />
 
     <RadioButton
         android:id="@+id/q2_answer"
+        style="@style/OptionStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-
         android:text="@string/q2_option_d" />
 
 
