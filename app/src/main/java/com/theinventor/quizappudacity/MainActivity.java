@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 if (!(intent == new Intent(getApplicationContext(), SummaryActivity.class))) {
+                    calculateScore();
                     Toast.makeText(getApplicationContext(), "Time Up", Toast.LENGTH_SHORT).show();
                     showSummary();
                 }
